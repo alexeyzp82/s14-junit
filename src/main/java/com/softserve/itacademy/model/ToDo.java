@@ -5,6 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -92,5 +93,18 @@ public class ToDo {
                 ", title = '" + title + '\'' +
                 ", createdAt = " + createdAt +
                 "} ";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ToDo toDo = (ToDo) o;
+        return Objects.equals(title, toDo.title) && Objects.equals(createdAt, toDo.createdAt);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, createdAt);
     }
 }
