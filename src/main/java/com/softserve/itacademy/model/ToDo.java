@@ -100,11 +100,11 @@ public class ToDo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ToDo toDo = (ToDo) o;
-        return Objects.equals(title, toDo.title) && Objects.equals(createdAt, toDo.createdAt);
+        return Objects.equals(title, toDo.title);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, createdAt);
+        return Objects.hash(title);
     }
 }
